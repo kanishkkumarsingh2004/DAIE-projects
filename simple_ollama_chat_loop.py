@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 ollama_model_name = "gemma3:1b" # Replace with your actual Ollama model name 
 
-set_llm(ollama_llm=ollama_model_name , temperature=0.3, max_tokens=1500, llm_type=LLMType.OLLAMA)
+set_llm(ollama_llm=ollama_model_name, temperature=0.3, max_tokens=1500, llm_type=LLMType.OLLAMA, stream=True)
 
 async def chat_with_agent(agent: Agent):
     """
@@ -44,17 +44,15 @@ async def chat_with_agent(agent: Agent):
             if not user_input:
                 continue
             
-            # Send message to agent and get response (using string for direct LLM interaction)
+            # Send message to agent and get response
             logger.info(f"Sending message to {agent.name}: {user_input}")
             
-            # Here we use the send_message method with string input (direct LLM)
             response = await agent.send_message(user_input)
             
-            # Display agent's response
-            if response:
+            # Streaming prints inline (agent.send_message handles the prefix)
+            from daie.core.llm_manager import get_llm_config
+            if not get_llm_config().stream and response:
                 print(f"\n{agent.name}: {response}")
-            else:
-                print(f"\n{agent.name}: (No response)")
             
             print()
             
