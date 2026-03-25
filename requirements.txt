@@ -6,7 +6,7 @@ cffi==2.0.0
 charset-normalizer==3.4.6
 click==8.3.1
 cryptography==46.0.5
-daie==1.0.3
+daie==1.0.4
 h11==0.16.0
 idna==3.11
 markdown-it-py==4.0.0

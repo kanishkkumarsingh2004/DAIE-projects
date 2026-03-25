@@ -20,7 +20,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-ollama_model_name = "gemma3:1b" # Replace with your actual Ollama model name 
+ollama_model_name = "llama3.2:1b" # Replace with your actual Ollama model name 
 
 set_llm(ollama_llm=ollama_model_name, temperature=0.3, max_tokens=1500, llm_type=LLMType.OLLAMA, stream=True)
 
