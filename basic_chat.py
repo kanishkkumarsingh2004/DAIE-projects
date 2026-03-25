@@ -9,7 +9,7 @@ set_llm(ollama_llm="llama3.2:1b", stream=True)
 async def main():
     # 2. Configure the agent
     config = AgentConfig(
-        name="Alex",
+        name="Luna",
         role=AgentRole.GENERAL_PURPOSE,
         system_prompt="You are a helpful and concise AI assistant.",
         gender="female",
