@@ -16,7 +16,9 @@ async def main():
         personality="sassy, witty, and very direct",
         behavior="always uses emojis and speaks enthusiastically",
         temperature=0.9,  # Dynamic override of the LLM temperature just for this agent
-        max_tokens=1024
+        max_tokens=1024,
+        rag_document_path="./data/knowledge_base.txt",  # Optional: path to a local document for retrieval-augmented generation (RAG)
+        enable_rag=True,  # Enable RAG to allow the agent to retrieve information from the provided document
     )
     
     # 3. Initialize the agent
