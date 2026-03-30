@@ -2,7 +2,7 @@
 # IMPORTANT: Use a more capable model for better tool usage
 # llama3.2:1b may struggle with complex tool parameters
 # Recommended: llama3.2:latest, mistral, or qwen2.5
-set_llm(ollama_llm="llama3.2:1b", stream=True)
+# set_llm(ollama_llm="llama3.2:1b", stream=True)
 
 import asyncio
 from daie import Agent, AgentConfig, set_llm
