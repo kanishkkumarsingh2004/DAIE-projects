@@ -19,6 +19,7 @@ config = AgentConfig(
     role=AgentRole.GENERAL_PURPOSE,
     system_prompt="You are a helpful and concise AI assistant.",
     personality="friendly and helpful"
+    persistent_memory=True
 )
 agent = Agent(config=config)
 
