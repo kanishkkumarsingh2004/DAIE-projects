@@ -12,7 +12,7 @@ import asyncio
 from daie import Agent, AgentConfig, set_llm
 from daie.chat import ChatLoopConfig
 
-set_llm(ollama_llm="llama3.2:1b", stream=True)
+set_llm(ollama_llm="llama3.2:1b", stream=True, base_url="http://127.0.0.1:11434")
 
 
 async def main():
