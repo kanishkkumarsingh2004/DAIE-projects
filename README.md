@@ -17,6 +17,11 @@ A collection of sample applications demonstrating the capabilities of the **DAIE
   - [Orchestrator RAG](#orchestrator-rag)
   - [P2P Multi-Agent Networking](#p2p-multi-agent-networking)
   - [API Call Tool](#api-call-tool)
+  - [Custom Tool Integration](#custom-tool-integration)
+  - [Parliament Architecture](#parliament-architecture)
+  - [Hybrid Parliament Orchestrator](#hybrid-parliament-orchestrator)
+  - [Node Agents Interactive](#node-agents-interactive)
+  - [Selenium Tool Test](#selenium-tool-test)
 - [Project Structure](#project-structure)
 - [Configuration](#configuration)
 - [Use Cases](#use-cases)
@@ -1432,11 +1437,104 @@ class ActionAgent:
 - Patterns for deciding when and how agents should use external APIs
 - Techniques for handling asynchronous I/O in agent systems
 - Best practices for secure and reliable external service communication
-- Methods for integrating API data into agent knowledge and decision-making
-- Strategies for handling failures and providing graceful degradation
-- Knowledge of common API integration patterns and anti-patterns
-
 [📄 Detailed Documentation](docs/APICallTool.md)
+
+---
+
+### Custom Tool Integration
+
+A practical demonstration of how to extend a DAIE agent's capabilities using custom tools. This example showcases the `@tool` decorator for defining new functions that the agent can autonomously select and execute during a ReAct loop.
+
+**Features**:
+- **Custom Tool Decorator**: Define tools using the simple `@tool` syntax
+- **Multi-Tool Support**: Combining custom tools with built-in tools like `FileManagerTool`
+- **Autonomous Tool Selection**: The agent uses a ReAct (Reasoning and Acting) loop to decide which tool to use
+- **File System Interaction**: Demonstrate saving computational results to the local filesystem
+
+**Run**:
+```bash
+python Custom_tool.py
+```
+
+[📄 Detailed Documentation](docs/Custom_tool.md)
+
+---
+
+### Parliament Architecture
+
+A sophisticated "Mixture-of-Agents" setup designed for high-stakes decision making and complex multi-perspective analysis. This architecture uses an assembly of specialized agents that peer-review each other's work and synthesize a final consensus result.
+
+**Features**:
+- **Consensus Building**: Multiple agents evaluate a topic from different ideological or professional backgrounds
+- **Peer Review**: Agents critique and refine the answers provided by their peers
+- **Designated Speaker**: A synthesizer agent takes the best parts of the deliberation to form the final response
+- **Role Specialization**: Includes Economist, Lawyer, Scientist, and Ethicist perspectives
+
+**Run**:
+```bash
+python parliament_architecture.py
+```
+
+[📄 Detailed Documentation](docs/parliament_architecture.md)
+
+---
+
+### Hybrid Parliament Orchestrator
+
+The pinnacle of the DAIE architecture, implementing a "Deliberate then Delegate" workflow. This example combines the strategic deliberation of a `Parliament` assembly with the tactical execution of an `OrchestratorAgent`.
+
+**Features**:
+- **Consensus Roadmap**: Generates a peer-reviewed strategic plan before execution
+- **Confidence Threshold**: Prevents execution if the Parliament's consensus confidence is too low
+- **Specialized Assemblies**: Architect, Researcher, and Manager agents debate the plan
+- **Automated Handover**: Seamless transition from abstract planning to concrete tool usage
+
+**Run**:
+```bash
+python hybrid_parliament.py
+```
+
+[📄 Detailed Documentation](docs/hybrid_parliament.md)
+
+---
+
+### Node Agents Interactive
+
+An advanced demonstration of the `Node`-based architecture in DAIE. This example shows how to host multiple specialized agents on a single node with shared resource management and intelligent message routing.
+
+**Features**:
+- **Node Hosting**: Manage multiple agents (Assistant, Coder, Researcher) on a single computational node
+- **Resource Management**: Configure node-level resources like GPU count, memory, and task concurrency
+- **Intelligent Routing**: Use an `AgentRouter` to automatically send tasks to the most appropriate agent
+- **Collaborative Mode**: Execute tasks that require specific contributions from all hosted agents
+
+**Run**:
+```bash
+python node_agents_interactive.py
+```
+
+[📄 Detailed Documentation](docs/node_agents_interactive.md)
+
+---
+
+### Selenium Tool Test
+
+A comprehensive demo of the `SeleniumChromeTool` for web automation and browser-based data extraction. This example shows how agents can interact with the live web to browse, scrape, and interact with complex UI elements.
+
+**Features**:
+- **Web Automation**: Browse websites, extract data, and fill forms autonomously
+- **Element Interaction**: Find and interact with CSS/XPath selectors
+- **Browser Control**: Take screenshots, manage tabs, and handle cookies
+- **JavaScript Execution**: Run custom JS snippets within the agent's browser context
+
+**Run**:
+```bash
+python selenium_tool_test.py
+```
+
+[📄 Detailed Documentation](docs/selenium_tool_test.md)
+
+---
 
 ---
 
@@ -1456,6 +1554,11 @@ daie_samples/
 ├── Orchestrator_RAG.py                # Research lab with RAG
 ├── p2p_networking.py                  # P2P networking demo
 ├── APICallTool.py                     # API call tool demo
+├── Custom_tool.py                     # Custom tool decorator demo
+├── parliament_architecture.py         # Mixture-of-Agents consensus
+├── hybrid_parliament.py               # Strategic deliberation + execution
+├── node_agents_interactive.py         # Multi-agent node hosting
+├── selenium_tool_test.py              # Web automation & scraping demo
 │
 ├── docs/                              # Documentation folder
 │   ├── basic_chat.md                  # Basic chat documentation
@@ -1465,7 +1568,13 @@ daie_samples/
 │   ├── Orchestrator_courtroom.md      # Courtroom simulation documentation
 │   ├── Orchestrator_RAG.md            # Orchestrator RAG documentation
 │   ├── p2p_networking.md              # P2P networking documentation
-│   └── APICallTool.md                 # API call tool documentation
+│   ├── APICallTool.md                 # API call tool documentation
+│   ├── Custom_tool.md                 # Custom tool documentation
+│   ├── parliament_architecture.md     # Parliament architecture documentation
+│   ├── hybrid_parliament.md           # Hybrid pipeline documentation
+│   ├── node_agents_interactive.md     # Node architecture documentation
+│   ├── selenium_tool_test.md          # Selenium tool documentation
+│   └── configuration_guide.md         # Comprehensive configuration guide
 │
 └── data/                              # Document storage (for RAG examples)
     └── (your documents here)
