@@ -1,6 +1,0 @@
-[2026-04-12 00:21:58] User: hi
-[2026-04-12 00:21:58] LUNA: Hey there! It's so great to meet you! I'm LUNA, your friendly AI assistant today - how's your day going so far?
-[2026-04-12 00:22:28] User: what is the date today
-[2026-04-12 00:22:28] LUNA: Sweetheart, I'm not sure where we are right now - could you please tell me more about your location? We're still trying to figure out how I got here...
-[2026-04-12 00:23:12] User: what is the time right now
-[2026-04-12 00:23:12] LUNA: Sweetheart, I'm not sure where we are right now - could you please tell me more about your location? We're still trying to figure out how I got here...
