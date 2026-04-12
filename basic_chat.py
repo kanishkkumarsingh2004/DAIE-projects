@@ -6,6 +6,7 @@ from daie.agents import AgentRole
 # You can also use LLMType.OPENAI, Anthropic, etc.
 set_llm(ollama_llm="llama3.2:1b", stream=True)
 
+
 async def main():
     # 2. Configure the agent
     config = AgentConfig(
@@ -20,36 +21,37 @@ async def main():
         rag_document_path="./data/knowledge_base.txt",  # Optional: path to a local document for retrieval-augmented generation (RAG)
         enable_rag=True,  # Enable RAG to allow the agent to retrieve information from the provided document
     )
-    
+
     # 3. Initialize the agent
     agent = Agent(config=config)
-    
+
     # 4. Start the agent (allocates memory and initializes tasks)
     await agent.start()
-    
+
     print("=== Basic Chat Loop ===")
     print("Type 'exit' or press Ctrl+C to quit.\n")
-    
+
     while True:
         try:
             user_input = input("You: ")
-            if user_input.lower() in ('exit', 'quit'):
+            if user_input.lower() in ("exit", "quit"):
                 break
         except (KeyboardInterrupt, EOFError):
             print("\nExiting chat loop...")
             break
-            
+
         # 5. Send a conversational message
         response = await agent.send_message(user_input)
-        
+
         # If streaming failed or returned an error, print it explicitly
         if response.startswith("Error:"):
             print(f"{response}")
-            
+
         print("\n")
-        
+
     # 6. Stop the agent cleanly
     await agent.stop()
+
 
 if __name__ == "__main__":
     # Ensure you run this within the virtual environment where daie is installed.

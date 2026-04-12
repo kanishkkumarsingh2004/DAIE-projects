@@ -1,7 +1,7 @@
 import asyncio
 from daie import Agent, AgentConfig, set_llm
 from daie.agents import AgentRole
-from daie.tools import FileManagerTool, APICallTool, tool
+from daie.tools import FileManagerTool, tool
 
 set_llm(ollama_llm="llama3.2:1b", stream=True)
 
@@ -11,12 +11,15 @@ set_llm(ollama_llm="llama3.2:1b", stream=True)
 async def calculate_math(expression: str) -> str:
     return str(eval(expression))
 
+
 async def main():
-    agent = Agent(config=AgentConfig(
-        name="MathBot",
-        role=AgentRole.GENERAL_PURPOSE,
-        system_prompt="You are a capable agent with access to math and file tools.",
-    ))
+    agent = Agent(
+        config=AgentConfig(
+            name="MathBot",
+            role=AgentRole.GENERAL_PURPOSE,
+            system_prompt="You are a capable agent with access to math and file tools.",
+        )
+    )
 
     agent.add_tool(calculate_math)
     agent.add_tool(FileManagerTool())
@@ -30,5 +33,6 @@ async def main():
     print("Final Answer:", result)
 
     await agent.stop()
+
 
 asyncio.run(main())

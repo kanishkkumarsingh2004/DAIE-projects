@@ -94,19 +94,25 @@ async def main():
     # Create a demo payload file
     payload_path = "demo_payload.txt"
     with open(payload_path, "w") as f:
-        f.write("TOP SECRET: This is a classified network payload transferred via A2A protocol.")
+        f.write(
+            "TOP SECRET: This is a classified network payload transferred via A2A protocol."
+        )
 
     file_tool = agent1.get_tool("a2a_send_file")
     if file_tool:
         print(f"    Sending '{payload_path}' from NodeAlfa → NodeBravo...")
-        result = await file_tool._execute({
-            "receiver_id": agent2.id,
-            "file_path": payload_path,
-            "message": "Secure payload inbound!",
-        })
+        result = await file_tool._execute(
+            {
+                "receiver_id": agent2.id,
+                "file_path": payload_path,
+                "message": "Secure payload inbound!",
+            }
+        )
         print(f"    File transfer result: {result}")
     else:
-        print("    ⚠ A2A File Transfer tool not available (agent needs allow_file_transfers=True)")
+        print(
+            "    ⚠ A2A File Transfer tool not available (agent needs allow_file_transfers=True)"
+        )
 
     # ──────────────────────────────────────────────
     # 7. Authorization Test: blocked sender

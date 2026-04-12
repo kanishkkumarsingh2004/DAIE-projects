@@ -14,6 +14,7 @@ from daie.chat import ChatLoopConfig
 
 set_llm(ollama_llm="llama3.2:1b", stream=True)
 
+
 async def main():
     # Create agent with persistent memory enabled
     # Using a fixed agent_id ensures the same memory folder is used across sessions
@@ -29,16 +30,16 @@ async def main():
         temperature=0.7,
         persistent_memory=True,  # Enable persistent memory
     )
-    
+
     agent = Agent(config=config)
-    
+
     # Create and run chat loop
     chat_loop = ChatLoopConfig(
         agent=agent,
         welcome_message="=== Chat Loop with Persistent Memory ===\nType 'exit' or press Ctrl+C to quit.\n",
         show_agent_name=True,
     )
-    
+
     await chat_loop.run_async()
 
 
